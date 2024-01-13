@@ -5,6 +5,15 @@
 		"factoryName": {
 			"value": "ott-datafactory-001-dev"
 		},
+		"LS_ADLSgen2_accountKey": {
+			"value": ""
+		},
+		"LS_Onprem_File_connectionString": {
+			"value": ""
+		},
+		"LS_ADLSgen2_properties_typeProperties_url": {
+			"value": "https://ottadlsgen2dev001.dfs.core.windows.net/"
+		},
 		"LS_KeyVault_properties_typeProperties_baseUrl": {
 			"value": "https://OTT-key-vault-adf.vault.azure.net/"
 		},
