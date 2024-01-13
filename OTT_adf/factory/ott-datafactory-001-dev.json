@@ -1,0 +1,9 @@
+{
+	"name": "ott-datafactory-001-dev",
+	"location": "centralindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "0752ef01-d952-44b9-a5ce-a1f446ca8ebc",
+		"tenantId": "94386c16-e176-434f-88a7-a34d2b3b9c46"
+	}
+}
