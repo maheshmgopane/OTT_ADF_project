@@ -1,0 +1,22 @@
+{
+	"name": "DS_OnPreme",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_Onprem_File",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"container": "host"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
