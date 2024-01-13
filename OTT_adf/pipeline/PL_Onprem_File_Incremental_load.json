@@ -91,7 +91,6 @@
 												"storeSettings": {
 													"type": "AzureBlobStorageReadSettings",
 													"recursive": true,
-													"wildcardFileName": "*.csv",
 													"enablePartitionDiscovery": false
 												},
 												"formatSettings": {
@@ -101,7 +100,7 @@
 											"sink": {
 												"type": "DelimitedTextSink",
 												"storeSettings": {
-													"type": "AzureBlobStorageWriteSettings"
+													"type": "AzureBlobFSWriteSettings"
 												},
 												"formatSettings": {
 													"type": "DelimitedTextWriteSettings",
@@ -121,13 +120,88 @@
 										},
 										"inputs": [
 											{
-												"referenceName": "DS_OnPreme",
-												"type": "DatasetReference"
+												"referenceName": "DS_onprime_currentdatefile",
+												"type": "DatasetReference",
+												"parameters": {
+													"Para_filename": {
+														"value": "@item().name",
+														"type": "Expression"
+													}
+												}
 											}
 										],
 										"outputs": [
 											{
-												"referenceName": "DS_OnPreme",
+												"referenceName": "DS_ADLSGen2",
+												"type": "DatasetReference"
+											}
+										]
+									},
+									{
+										"name": "CP_copyinParquet",
+										"type": "Copy",
+										"dependsOn": [
+											{
+												"activity": "CP_onpreme_file_to_ADLS_todays",
+												"dependencyConditions": [
+													"Succeeded"
+												]
+											}
+										],
+										"policy": {
+											"timeout": "0.12:00:00",
+											"retry": 0,
+											"retryIntervalInSeconds": 30,
+											"secureOutput": false,
+											"secureInput": false
+										},
+										"userProperties": [],
+										"typeProperties": {
+											"source": {
+												"type": "DelimitedTextSource",
+												"storeSettings": {
+													"type": "AzureBlobStorageReadSettings",
+													"recursive": true,
+													"enablePartitionDiscovery": false
+												},
+												"formatSettings": {
+													"type": "DelimitedTextReadSettings"
+												}
+											},
+											"sink": {
+												"type": "ParquetSink",
+												"storeSettings": {
+													"type": "AzureBlobFSWriteSettings"
+												},
+												"formatSettings": {
+													"type": "ParquetWriteSettings"
+												}
+											},
+											"enableStaging": false,
+											"translator": {
+												"type": "TabularTranslator",
+												"typeConversion": true,
+												"typeConversionSettings": {
+													"allowDataTruncation": true,
+													"treatBooleanAsNumber": false
+												}
+											}
+										},
+										"inputs": [
+											{
+												"referenceName": "DS_onprime_currentdatefile",
+												"type": "DatasetReference",
+												"parameters": {
+													"Para_filename": {
+														"value": "@item().name",
+														"type": "Expression"
+													}
+												}
+											}
+										],
+										"outputs": [
+											{
+												"referenceName": "DS_Parquet",
 												"type": "DatasetReference"
 											}
 										]

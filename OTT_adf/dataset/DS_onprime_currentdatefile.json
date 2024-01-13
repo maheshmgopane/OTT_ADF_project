@@ -1,0 +1,31 @@
+{
+	"name": "DS_onprime_currentdatefile",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_Onprem_File",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"Para_filename": {
+				"type": "String"
+			}
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": {
+					"value": "@dataset().Para_filename",
+					"type": "Expression"
+				},
+				"container": "host"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
