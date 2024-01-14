@@ -243,7 +243,12 @@
 													{
 														"referenceName": "DS_ADLSGen2",
 														"type": "DatasetReference",
-														"parameters": {}
+														"parameters": {
+															"Para_todays_folder": {
+																"value": "ingest/@{formatDateTime(utcNow(),'yyyy-MM-dd')}",
+																"type": "Expression"
+															}
+														}
 													}
 												]
 											}
@@ -328,7 +333,12 @@
 							{
 								"referenceName": "DS_ADLSGen2",
 								"type": "DatasetReference",
-								"parameters": {}
+								"parameters": {
+									"Para_todays_folder": {
+										"value": "ingest/@{formatDateTime(utcNow(),'yyyy-MM-dd')}",
+										"type": "Expression"
+									}
+								}
 							}
 						]
 					}
@@ -410,12 +420,20 @@
 					"referenceName": "LS_ADLSgen2",
 					"type": "LinkedServiceReference"
 				},
+				"parameters": {
+					"Para_todays_folder": {
+						"type": "String"
+					}
+				},
 				"annotations": [],
 				"type": "DelimitedText",
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
-						"folderPath": "ingest",
+						"folderPath": {
+							"value": "@dataset().Para_todays_folder",
+							"type": "Expression"
+						},
 						"fileSystem": "raw"
 					},
 					"columnDelimiter": ",",
