@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Notebook",
+				"name": "Notebook1",
 				"type": "SynapseNotebook",
 				"dependsOn": [],
 				"policy": {
@@ -31,9 +31,6 @@
 						"type": "BigDataPoolReference"
 					},
 					"executorSize": "Small",
-					"conf": {
-						"spark.dynamicAllocation.enabled": false
-					},
 					"driverSize": "Small"
 				},
 				"linkedServiceName": {
