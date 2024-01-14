@@ -15,6 +15,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'LS_Onprem_File'"
 		},
+		"LS_database_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'LS_database'"
+		},
 		"LS_ADLSgen2_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://ottadlsgen2dev001.dfs.core.windows.net/"
@@ -59,6 +63,9 @@
 					},
 					"LS_Onprem_File_connectionString": {
 						"value": "[parameters('LS_Onprem_File_connectionString')]"
+					},
+					"LS_database_connectionString": {
+						"value": "[parameters('LS_database_connectionString')]"
 					},
 					"LS_ADLSgen2_properties_typeProperties_url": {
 						"value": "[parameters('LS_ADLSgen2_properties_typeProperties_url')]"

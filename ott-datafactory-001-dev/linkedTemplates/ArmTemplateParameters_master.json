@@ -11,6 +11,9 @@
 		"LS_Onprem_File_connectionString": {
 			"value": ""
 		},
+		"LS_database_connectionString": {
+			"value": ""
+		},
 		"LS_ADLSgen2_properties_typeProperties_url": {
 			"value": "https://ottadlsgen2dev001.dfs.core.windows.net/"
 		},
