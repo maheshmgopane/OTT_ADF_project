@@ -7,6 +7,10 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "ott-datafactory-001-dev"
 		},
+		"AzureSqlDatabase1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureSqlDatabase1'"
+		},
 		"LS_ADLSgen2_accountKey": {
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'LS_ADLSgen2'"
@@ -57,6 +61,9 @@
 				"parameters": {
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
+					},
+					"AzureSqlDatabase1_connectionString": {
+						"value": "[parameters('AzureSqlDatabase1_connectionString')]"
 					},
 					"LS_ADLSgen2_accountKey": {
 						"value": "[parameters('LS_ADLSgen2_accountKey')]"

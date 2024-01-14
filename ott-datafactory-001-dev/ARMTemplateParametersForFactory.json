@@ -5,6 +5,9 @@
 		"factoryName": {
 			"value": "ott-datafactory-001-dev"
 		},
+		"AzureSqlDatabase1_connectionString": {
+			"value": ""
+		},
 		"LS_ADLSgen2_accountKey": {
 			"value": ""
 		},
