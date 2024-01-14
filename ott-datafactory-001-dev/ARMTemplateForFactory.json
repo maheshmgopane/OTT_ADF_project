@@ -472,6 +472,122 @@
 							"waitOnCompletion": true,
 							"parameters": {}
 						}
+					},
+					{
+						"name": "Extarct_fail",
+						"type": "WebActivity",
+						"dependsOn": [
+							{
+								"activity": "Execute PL_Incremental_load",
+								"dependencyConditions": [
+									"Failed"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"url": "https://prod-18.centralindia.logic.azure.com:443/workflows/9a11e282efed421488b8982f1f430a2c/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=5KgloMZ3qFbsDsCpfWSN-w-5eriqyC-5LfuQZds4ZXw",
+							"method": "POST",
+							"headers": {},
+							"body": {
+								"value": "{\n\n\n    'pipelinename':'@{pipeline().Pipeline}',\n    'datafactoryname':'@{pipeline().DataFactory}',\n    'RunID':'@{pipeline().RunId}',\n    'Massage':'Failuer'\n\n}",
+								"type": "Expression"
+							}
+						}
+					},
+					{
+						"name": "Extarct_fail_copy1",
+						"type": "WebActivity",
+						"dependsOn": [
+							{
+								"activity": "Execute PL_transform",
+								"dependencyConditions": [
+									"Failed"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"url": "https://prod-18.centralindia.logic.azure.com:443/workflows/9a11e282efed421488b8982f1f430a2c/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=5KgloMZ3qFbsDsCpfWSN-w-5eriqyC-5LfuQZds4ZXw",
+							"method": "POST",
+							"headers": {},
+							"body": {
+								"value": "{\n\n\n    'pipelinename':'@{pipeline().Pipeline}',\n    'datafactoryname':'@{pipeline().DataFactory}',\n    'RunID':'@{pipeline().RunId}',\n    'Massage':'Failuer'\n\n}",
+								"type": "Expression"
+							}
+						}
+					},
+					{
+						"name": "Extarct_fail_copy2",
+						"type": "WebActivity",
+						"dependsOn": [
+							{
+								"activity": "Execute PL_loadSQL",
+								"dependencyConditions": [
+									"Failed"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"url": "https://prod-18.centralindia.logic.azure.com:443/workflows/9a11e282efed421488b8982f1f430a2c/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=5KgloMZ3qFbsDsCpfWSN-w-5eriqyC-5LfuQZds4ZXw",
+							"method": "POST",
+							"headers": {},
+							"body": {
+								"value": "{\n\n\n    'pipelinename':'@{pipeline().Pipeline}',\n    'datafactoryname':'@{pipeline().DataFactory}',\n    'RunID':'@{pipeline().RunId}',\n    'Massage':'Failuer'\n\n}",
+								"type": "Expression"
+							}
+						}
+					},
+					{
+						"name": "Extarct_fail_copy3",
+						"type": "WebActivity",
+						"dependsOn": [
+							{
+								"activity": "Execute PL_loadSQL",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"url": "https://prod-18.centralindia.logic.azure.com:443/workflows/9a11e282efed421488b8982f1f430a2c/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=5KgloMZ3qFbsDsCpfWSN-w-5eriqyC-5LfuQZds4ZXw",
+							"method": "POST",
+							"headers": {},
+							"body": {
+								"value": "{\n\n\n    'pipelinename':'@{pipeline().Pipeline}',\n    'datafactoryname':'@{pipeline().DataFactory}',\n    'RunID':'@{pipeline().RunId}',\n    'Massage':'Success'\n\n}",
+								"type": "Expression"
+							}
+						}
 					}
 				],
 				"policy": {
