@@ -129,7 +129,7 @@
 							"snapshot": true,
 							"sparkPool": {
 								"referenceName": {
-									"value": "NotebookPool",
+									"value": "samplepool",
 									"type": "Expression"
 								},
 								"type": "BigDataPoolReference"
