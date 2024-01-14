@@ -16,6 +16,9 @@
 		},
 		"LS_KeyVault_properties_typeProperties_baseUrl": {
 			"value": "https://OTT-key-vault-adf.vault.azure.net/"
+		},
+		"LS_Synapse_properties_typeProperties_endpoint": {
+			"value": "https://ott-synapse-dev-001.dev.azuresynapse.net"
 		}
 	}
 }

@@ -23,6 +23,10 @@
 			"type": "string",
 			"defaultValue": "https://OTT-key-vault-adf.vault.azure.net/"
 		},
+		"LS_Synapse_properties_typeProperties_endpoint": {
+			"type": "string",
+			"defaultValue": "https://ott-synapse-dev-001.dev.azuresynapse.net"
+		},
 		"containerUri": {
 			"type": "string",
 			"metadata": "URI to storage account containing linked ARM templates"
@@ -61,6 +65,9 @@
 					},
 					"LS_KeyVault_properties_typeProperties_baseUrl": {
 						"value": "[parameters('LS_KeyVault_properties_typeProperties_baseUrl')]"
+					},
+					"LS_Synapse_properties_typeProperties_endpoint": {
+						"value": "[parameters('LS_Synapse_properties_typeProperties_endpoint')]"
 					}
 				}
 			},
