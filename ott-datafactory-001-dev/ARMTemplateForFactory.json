@@ -268,7 +268,7 @@
 			"properties": {
 				"activities": [
 					{
-						"name": "Notebook",
+						"name": "Notebook1",
 						"type": "SynapseNotebook",
 						"dependsOn": [],
 						"policy": {
@@ -297,9 +297,12 @@
 							},
 							"executorSize": "Small",
 							"conf": {
-								"spark.dynamicAllocation.enabled": false
+								"spark.dynamicAllocation.enabled": null,
+								"spark.dynamicAllocation.minExecutors": null,
+								"spark.dynamicAllocation.maxExecutors": null
 							},
-							"driverSize": "Small"
+							"driverSize": "Small",
+							"numExecutors": null
 						},
 						"linkedServiceName": {
 							"referenceName": "LS_Synapse",
