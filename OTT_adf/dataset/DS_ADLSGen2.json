@@ -5,12 +5,20 @@
 			"referenceName": "LS_ADLSgen2",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"Para_todays_folder": {
+				"type": "String"
+			}
+		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"folderPath": "ingest",
+				"folderPath": {
+					"value": "@dataset().Para_todays_folder",
+					"type": "Expression"
+				},
 				"fileSystem": "raw"
 			},
 			"columnDelimiter": ",",

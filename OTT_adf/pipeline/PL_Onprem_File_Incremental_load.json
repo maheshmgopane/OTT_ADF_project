@@ -25,6 +25,7 @@
 					],
 					"storeSettings": {
 						"type": "AzureBlobStorageReadSettings",
+						"recursive": true,
 						"enablePartitionDiscovery": false
 					},
 					"formatSettings": {
@@ -122,7 +123,13 @@
 										"outputs": [
 											{
 												"referenceName": "DS_ADLSGen2",
-												"type": "DatasetReference"
+												"type": "DatasetReference",
+												"parameters": {
+													"Para_todays_folder": {
+														"value": "ingest/@{formatDateTime(utcNow(),'yyyy-MM-dd')}",
+														"type": "Expression"
+													}
+												}
 											}
 										]
 									}
